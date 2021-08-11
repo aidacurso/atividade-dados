@@ -16,7 +16,10 @@ namespace atividade1
         {
             InitializeComponent();
         }
-        public int num1, num2, soma;
+        public int num1, num2, soma, contJogador = 0, contComputador = 0;
+
+
+
         private void buttonJogar_Click(object sender, EventArgs e)
         {
             Random numero = new Random();
@@ -27,6 +30,9 @@ namespace atividade1
             textDado1.Text = num1.ToString();
             textDado2.Text = num2.ToString();
 
+            textJogadorGanhu.Text = contJogador.ToString();
+            textComputadorGanhou.Text = contComputador.ToString();
+
             soma = num1 + num2;
             if (textJogador1.Text == soma.ToString())
             {
@@ -35,10 +41,12 @@ namespace atividade1
                 {
                     textComputador.Text = numero.Next(1, 6).ToString();
                 }
+                contJogador++;
             }
             else
             {
                 textComputador.Text = soma.ToString();
+                contComputador++;
             }
         }
 
